@@ -22,7 +22,7 @@ const productsList = [];
 // 🎊 Fonctionnalités
 // ==============================
 
-// Ajouter un produit dans la liste des produits
+// Ajouter un produit dans la liste des produits (et vérifier si tous les champs sont complets)
 function addProductToList() {
     if (!inputName.value.trim() || !inputQuantity.value.trim() || inputProduct.value === '') {
         alert("Veuillez remplir tous les champs !");
@@ -62,7 +62,7 @@ function displayproducts() {
     }
 }
 
-// Enlever un produit de la liste productsList
+// Enlever un produit de la liste productsList. On utilise l'index en argument pour supprimer un élément précis de la liste. Cet index sera récupéré gâce au data-index
 function removeProductFromProductsList(index) {
     productsList.splice(index, 1);
 }
@@ -78,7 +78,7 @@ function resetInputs() {
 // ==============================
 displayproducts();
 
-// Gérer l'évenement d'ajout
+// Gérer l'évenement d'ajout au clic sur le bouton "Ajouter"
 addButton.addEventListener(`click`, (e) => {
     e.preventDefault();
     addProductToList();
@@ -86,7 +86,7 @@ addButton.addEventListener(`click`, (e) => {
     resetInputs();
 })
 
-// Gérer l'évenement de suppression
+// Gérer l'évenement de suppression au clic sur le bouton "Supprimer"
 displayedProductsContainer.addEventListener(`click`, (e) => {
     e.preventDefault();
     let index = e.target.closest(".list-element").dataset.index;
