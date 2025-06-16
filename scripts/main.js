@@ -78,6 +78,7 @@ function resetInputs() {
 // ==============================
 displayproducts();
 
+// Gérer l'évenement d'ajout
 addButton.addEventListener(`click`, (e) => {
     e.preventDefault();
     addProductToList();
@@ -85,6 +86,7 @@ addButton.addEventListener(`click`, (e) => {
     resetInputs();
 })
 
+// Gérer l'évenement de suppression
 displayedProductsContainer.addEventListener(`click`, (e) => {
     e.preventDefault();
     let index = e.target.closest(".list-element").dataset.index;
